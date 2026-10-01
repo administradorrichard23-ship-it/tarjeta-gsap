@@ -1,0 +1,1 @@
+"Genera una animación utilizando GSAP donde se aplique un gsap.fromTo() sobre una caja con ID #caja3, haciendo que inicie de forma invisible con opacidad 0, se desplace desde arriba con un eje Y de -50 y una rotación de 0 grados, hasta alcanzar su posición final con opacidad completa, un giro de 360 grados y un suavizado de tipo power2.out."

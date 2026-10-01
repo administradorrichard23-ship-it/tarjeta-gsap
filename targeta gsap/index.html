@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-página Animada (Garantizado Local)</title>
+    <style>
+        /* === ESTILOS CSS === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        .btn {
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+       .card {
+    background: white;
+    border-radius: 16px; /* Redondea las esquinas de la tarjeta */
+    border: 1px solid #e2e8f0; /* El borde gris sutil */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* La sombra suave */
+    
+    /* EL SECRETO: Añade espacio en blanco arriba, a la izquierda y a la derecha */
+    padding: 12px 12px 25px 12px; 
+    
+    width: 280px;
+    text-align: left; /* Alinea los textos a la izquierda */
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    
+    /* EL SECRETO: Redondea las esquinas de la imagen para que acompañe a la tarjeta */
+    border-radius: 12px; 
+}
+
+
+       .card h3 {
+    padding: 15px 8px 5px 8px; /* Espacio alrededor del título */
+    color: #003366; /* Color azul para el título */
+    font-size: 1.4rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    padding: 0 8px; /* Espacio a los lados del párrafo */
+    line-height: 1.4;
+}
+
+         /* === CLASES DE ANIMACIÓN NATIVAS PARA EVITAR BLOQUEOS === */
+        .animar-entrada-arriba {
+            animation: entradaArriba 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .animar-boton {
+            animation: entradaBoton 0.8s ease forwards, botonEscala 0.6s ease 0.8s 2 alternate;
+        }
+        .animar-tarjeta {
+            animation: entradaTarjeta 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Retrasos secuenciales (Efecto Stagger) */
+        .retardo-1 { animation-delay: 0.2s; }
+        .retardo-2 { animation-delay: 1.4s; }
+        .retardo-3 { animation-delay: 1.6s; }
+        .retardo-4 { animation-delay: 1.8s; }
+
+        @keyframes entradaArriba {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes entradaBoton {
+            to { opacity: 1; }
+        }
+        @keyframes botonEscala {
+            to { transform: scale(1.1); }
+        }
+        @keyframes entradaTarjeta {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ESTRUCTURA HTML -->
+    <header class="hero">
+        <h1 id="hero-title">Explora · Crea · Anima</h1>
+        <p id="hero-subtitle">mi mini-página </p>
+        <button class="btn">Descubrir</button>
+    </header>
+
+    <main class="container">
+        <div class="card" id="c1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn19EIqGxTjTjHhjcwLI4rCNVQlV2G_BqCNsWrpGVxW3-Epn2lmOoIWJQ&s=10" alt="Naturaleza">
+            <h3>Naturaleza</h3>
+            <p>Paisajes increíbles en todo el mundo.</p>
+        </div>
+        <div class="card" id="c2">
+            <img src="https://media.gq.com.mx/photos/68a36315eb02e01a15ddf6da/16:9/w_2560%2Cc_limit/Ciudad_de_Bangkok_Tailandia%2520(1).jpg" alt="Ciudades">
+            <h3>Ciudades</h3>
+            <p>Conoce nuevas culturas y lugares.</p>
+        </div>
+        <div class="card" id="c3">
+            <img src="https://res.cloudinary.com/manawa/image/private/f_auto,c_limit,w_3840,q_auto/x3qqrj7njvja3lo3s3og" alt="Aventuras">
+            <h3>Aventuras</h3>
+            <p>Vive experiencias inolvidables.</p>
+        </div>
+    </main>
+
+    <script>
+        // LÓGICA DE CONTROL LOCAL DE ANIMACIONES
+        function iniciarLineaDeTiempo() {
+            const titulo = document.getElementById('hero-title');
+            const subtitulo = document.getElementById('hero-subtitle');
+            const boton = document.querySelector('.btn');
+            const c1 = document.getElementById('c1');
+            const c2 = document.getElementById('c2');
+            const c3 = document.getElementById('c3');
+
+            // Limpiar clases previas para poder reiniciar si es necesario
+            [titulo, subtitulo, boton, c1, c2, c3].forEach(el => {
+                el.className = el.tagName.toLowerCase() === 'button' ? 'btn' : (el.tagName.toLowerCase() === 'div' ? 'card' : '');
+            });
+
+            // Forzar refresco visual en el navegador
+            void titulo.offsetWidth;
+
+            // Iniciar secuencia idéntica a la línea de tiempo de la diapositiva
+            titulo.classList.add('animar-entrada-arriba');
+            subtitulo.classList.add('animar-entrada-arriba', 'retardo-1');
+            boton.classList.add('animar-boton', 'retardo-1');
+            
+            // Entrada en Cascada (Stagger) de las 3 tarjetas
+            c1.classList.add('animar-tarjeta', 'retardo-2');
+            c2.classList.add('animar-tarjeta', 'retardo-3');
+            c3.classList.add('animar-tarjeta', 'retardo-4');
+        }
+
+        // Ejecutar inmediatamente cuando la página cargue en el navegador
+        window.addEventListener('DOMContentLoaded', iniciarLineaDeTiempo);
+
+        // Permitir reiniciar el efecto al hacer clic en el botón
+        document.querySelector('.btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            iniciarLineaDeTiempo();
+        });
+    </script>
+</body>
+</html>
