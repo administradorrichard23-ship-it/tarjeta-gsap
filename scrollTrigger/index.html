@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mollendo y la Provincia de Islay</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #050b14;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* CADA SECCIÓN OCUPA TODA LA PANTALLA EN VERTICAL (Como tu imagen) */
+.section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea el contenido al inicio (izquierda) */
+    padding: 0 10%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Capa oscura semitransparente sobre la foto de fondo */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(90deg, rgba(5, 11, 20, 0.85) 30%, rgba(5, 11, 20, 0.4) 100%);
+    z-index: 1;
+}
+
+/* CONTENEDOR DE TEXTO: Alineado a la izquierda y sobre la capa oscura */
+.section-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px; /* Ancho controlado para que no se desarme en pantallas grandes */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Fuerza todo a la izquierda */
+    text-align: left; /* Alinea los textos a la izquierda */
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #00d2ff; /* Color cyan del ejemplo */
+    text-align: left;
+}
+
+p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    text-align: left;
+}
+
+/* NÚMEROS LATERALES GRANDES (01, 02, 03 de fondo como en tu imagen) */
+.section::after {
+    position: absolute;
+    right: 8%;
+    bottom: 10%;
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.08); /* Color transparente muy sutil */
+    z-index: 1;
+}
+
+/* Asignamos los números correspondientes a cada sección en base a su ID */
+#historia::after { content: "01"; }
+#paisajes::after { content: "02"; }
+#turismo::after { content: "03"; }
+
+/* FOTOS DE FONDO REALES Y COMPATIBLES DESDE SERVIDORES ABIERTOS */
+#historia { 
+    background-image: url('https://www.caminoincamachu.com/wp-content/uploads/2024/02/Turismo-en-Mollendo-Peru.jpg'); 
+}
+#paisajes { 
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk2l8PVBR6_7rdKvm-hAHddHj4RiVfm8AvVhkSSzByPlk7m6AzIR7ffigj&s=10'); 
+}
+#turismo { 
+    background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/dd/9b/b7/20180121-110953-largejpg.jpg?w=500&h=500&s=1'); 
+}
+
+/* ESTILOS PARA LOS BOTONES INTERACTIVOS (Iguales a tu imagen) */
+.btn-interactivo {
+    display: inline-block;
+    margin-top: 25px; /* Separa el botón del párrafo */
+    padding: 12px 32px;
+    background-color: #0070f3; /* Azul brillante idéntico a tu ejemplo */
+    color: #ffffff;
+    text-decoration: none; /* Quita la línea de enlace subrayada */
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Bordes completamente redondeados como tu imagen */
+    box-shadow: 0 4px 15px rgba(0, 112, 243, 0.3); /* Brillo sutil azul */
+    transition: all 0.3s ease; /* Hace que el efecto al pasar el mouse sea suave */
+    cursor: pointer;
+}
+
+/* EFECTO INTERACTIVO: Cuando pasas el mouse por encima */
+.btn-interactivo:hover {
+    background-color: #00d2ff; /* Cambia a cyan brillante */
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.5); /* Aumenta el brillo */
+    transform: translateY(-3px); /* El botón sube sutilmente */
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- SECCIÓN 1: HISTORIA (Entrará desde la izquierda) -->
+    <section id="historia" class="section">
+        <div class="section-content">
+            <h1>Historia de Mollendo</h1>
+            <p>Conocido históricamente como el gran puerto del sur peruano.  nació oficialmente a la vida republicana el 6 de enero de 1871 tras la inauguración del tramo del Ferrocarril del Sur y los decretos que clausuraron el antiguo puerto de Islay.</p>
+            <!-- ◄ AÑADE ESTE BOTÓN AQUÍ -->
+            <a href="#historia" class="btn-interactivo">Descubrir mas </a> 
+        </div>
+    </section>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: PAISAJES (Entrará desde la derecha) -->
+    <section id="paisajes" class="section">
+        <div class="section-content">
+            <h1>Paisajes Impresionantes</h1>
+            <p>Desde las extensas y inmensas playas hasta las formaciones rocosas únicas mollendo ofrece una atractiva combinación de extensas playas de arena fina, acantilados imponentes y miradores históricos para capturar postales del Océano Pacífico que contrasta con la inmensidad del mar.</p>
+            
+             <a href="#paisajes" class="btn-interactivo">Descubrir mas</a> 
+        </div>
+    </section>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: ATRACTIVOS TURÍSTICOS (Entrará desde la izquierda) -->
+    <section id="turismo" class="section">
+        <div class="section-content">
+            <h1>Atractivos Turísticos</h1>
+            <p>Explora paisajes y monumentos de su historia como el castillo forja ,el malecon , la plaza bolognesi que conectan parte de su historia y su diversidad de lugares turisticos para explorar y disfrutar</p>
+            <a href="#atractivos turisticos" class="btn-interactivo">Descubrir mas</a> 
+        </div>
+    </section>
+
+    <!-- CARGA DE LIBRERÍAS (GSAP Y SCROLLTRIGGER) -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+
+    <!-- CÓDIGO DE ANIMACIÓN PERSONALIZADO DESDE LOS COSTADOS -->
+    <script>
+        // Registrar el plugin ScrollTrigger en GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Seleccionar todas las secciones
+        const sections = gsap.utils.toArray(".section");
+
+        // Aplicar la animación con direcciones alternas usando el índice (index)
+        sections.forEach((section, index) => {
+            
+            // Si el índice es par (0, 2), entra desde la izquierda (-150). Si es impar (1), desde la derecha (150).
+            const direccionX = (index % 2 === 0) ? -150 : 150;
+
+            // Animamos el contenedor de texto de la sección actual
+            gsap.from(section.querySelector(".section-content"), {
+                opacity: 0,
+                x: direccionX,       // Movimiento horizontal personalizado
+                duration: 1.5,       // Duración más larga para mayor suavidad
+                ease: "power2.out",  // Transición con frenado suave al final
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 75%", // Se activa un poco antes para dar tiempo al movimiento lateral
+                    end: "top 40%",
+                    toggleActions: "play none none reverse" 
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>
